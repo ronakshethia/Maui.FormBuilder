@@ -25,13 +25,13 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore
-        run: dotnet restore ${{ env.PACKAGE_PROJECT }}
+        run: dotnet restore ${{ env.PACKAGE_PROJECT }} --framework net9.0
 
       - name: Build
-        run: dotnet build ${{ env.PACKAGE_PROJECT }} --configuration Release --no-restore
+        run: dotnet build ${{ env.PACKAGE_PROJECT }} --configuration Release --framework net9.0 --no-restore
 
       - name: Pack
-        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release --no-build -o ./artifacts
+        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release --framework net9.0 --no-build -o ./artifacts
 
       - name: Publish
         shell: pwsh
