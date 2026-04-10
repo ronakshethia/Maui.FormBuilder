@@ -37,7 +37,7 @@ jobs:
         run: dotnet build ${{ env.PACKAGE_PROJECT }} --configuration Release --framework net9.0 --no-restore
 
       - name: Pack
-        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release --framework net9.0 --no-build -o ./artifacts
+        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release --no-build -o ./artifacts /p:TargetFramework=net9.0
 
       - name: Publish
         shell: pwsh
