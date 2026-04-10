@@ -34,7 +34,7 @@ jobs:
         run: dotnet restore ${{ env.PACKAGE_PROJECT }}
 
       - name: Pack
-        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release -o ./artifacts /p:TargetFramework=net9.0
+        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release -o ./artifacts /p:TargetFrameworks=net9.0
 
       - name: Publish
         shell: pwsh
