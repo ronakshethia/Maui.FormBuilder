@@ -3,7 +3,7 @@
 > **A JSON-driven dynamic form engine for .NET MAUI.**  
 > Convert JSON schemas into native MAUI UI at runtime — with full MVVM support, a pluggable renderer registry, and built-in validation.
 
-[![NuGet](https://img.shields.io/nuget/v/Maui.FormBuilder.svg)](https://www.nuget.org/packages/Maui.FormBuilder)
+[![NuGet](https://img.shields.io/nuget/v/Ronak.Maui.FormBuilder.svg)](https://www.nuget.org/packages/Ronak.Maui.FormBuilder)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20macOS%20%7C%20Windows-blue)
 
@@ -25,7 +25,7 @@
 ## 📦 Installation
 
 ```bash
-dotnet add package Maui.FormBuilder
+dotnet add package Ronak.Maui.FormBuilder
 ```
 
 ---
