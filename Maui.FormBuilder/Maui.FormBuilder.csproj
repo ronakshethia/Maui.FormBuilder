@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net9.0;net9.0-android;net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.19041.0</TargetFrameworks>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>13</LangVersion>
+
+    <!-- Platform minimum versions -->
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+    <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+  </PropertyGroup>
+
+  <!-- NuGet Packaging Metadata -->
+  <PropertyGroup>
+    <PackageId>Maui.FormBuilder</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Your Name</Authors>
+    <Company>Your Company</Company>
+    <Product>Maui.FormBuilder</Product>
+    <Description>
+      A JSON-driven dynamic form engine for .NET MAUI.
+      Convert JSON schemas to native UI using a pluggable, registry-based renderer system with full MVVM support.
+      Supports Android, iOS, macOS Catalyst, and Windows.
+    </Description>
+    <PackageTags>maui;forms;json;schema;dynamic;formbuilder;mvvm;dotnet</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/yourusername/Maui.FormBuilder</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/yourusername/Maui.FormBuilder</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>Initial release — v1.0.0</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Optimize>true</Optimize>
+    <!-- CS1591: Render() overrides intentionally inherit docs from IFieldRenderer -->
+    <!-- MA002: SDK advisory; not applicable until we target .NET 10              -->
+    <NoWarn>$(NoWarn);CS1591;MA002</NoWarn>
+    <SkipValidateMauiImplicitPackageReferences>true</SkipValidateMauiImplicitPackageReferences>
+  </PropertyGroup>
+
+  <!-- Exclude XAML processing on the headless net9.0 TFM -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <Compile Remove="**\*.xaml.cs" />
+    <EmbeddedResource Remove="**\*.xaml" />
+    <MauiXaml Remove="**\*.xaml" />
+  </ItemGroup>
+
+  <!-- Bundle README into NuGet package -->
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

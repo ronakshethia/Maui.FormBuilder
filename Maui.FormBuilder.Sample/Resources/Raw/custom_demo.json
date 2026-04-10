@@ -1,0 +1,66 @@
+{
+  "title": "Custom Renderer Demo",
+  "description": "Showcases lambda and typed custom field renderers.",
+  "fields": [
+    {
+      "type": "heading",
+      "key": "heading1",
+      "label": "Rate Your Experience",
+      "properties": { "fontSize": 18, "color": "#6C63FF" }
+    },
+    {
+      "type": "label",
+      "key": "ratingHint",
+      "label": "Tap a star to rate. This field uses a lambda renderer registered at runtime.",
+      "properties": { "text": "Tap a star to rate. This field uses a lambda renderer." }
+    },
+    {
+      "type": "rating",
+      "key": "productRating",
+      "label": "Product Rating",
+      "required": true
+    },
+    {
+      "type": "divider",
+      "key": "div1",
+      "label": "",
+      "properties": { "color": "#D0C8FF" }
+    },
+    {
+      "type": "heading",
+      "key": "heading2",
+      "label": "Personalise",
+      "properties": { "fontSize": 18, "color": "#6C63FF" }
+    },
+    {
+      "type": "label",
+      "key": "colorHint",
+      "label": "Pick a swatch. This uses a typed IFieldRenderer class.",
+      "properties": { "text": "Pick a colour. This uses a typed IFieldRenderer class." }
+    },
+    {
+      "type": "colorpicker",
+      "key": "favouriteColor",
+      "label": "Favourite Color",
+      "properties": {
+        "colors": ["#FF6584", "#6C63FF", "#43D9AD", "#F4A261", "#E76F51"]
+      }
+    },
+    {
+      "type": "divider",
+      "key": "div2",
+      "label": "",
+      "properties": { "color": "#D0C8FF" }
+    },
+    {
+      "type": "multiline",
+      "key": "feedback",
+      "label": "Additional Feedback",
+      "placeholder": "Any other thoughts?"
+    }
+  ],
+  "actions": [
+    { "type": "submit", "key": "btnSubmit", "label": "Submit Feedback" },
+    { "type": "reset",  "key": "btnReset",  "label": "Clear" }
+  ]
+}

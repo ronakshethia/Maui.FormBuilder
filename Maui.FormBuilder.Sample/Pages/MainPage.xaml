@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Maui.FormBuilder.Sample.Pages.MainPage"
+    Title="Registration Form"
+    BackgroundColor="{StaticResource Background}">
+
+    <!--
+        The form view (ScrollView) returned by MauiFormBuilder.Build()
+        is set directly as Content in the code-behind.
+        This page intentionally has no XAML layout so the builder
+        drives the entire UI.
+    -->
+
+</ContentPage>

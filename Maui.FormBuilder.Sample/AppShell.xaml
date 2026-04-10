@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Maui.FormBuilder.Sample.Pages"
+    x:Class="Maui.FormBuilder.Sample.AppShell"
+    Shell.NavBarHasShadow="True">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Shell" ApplyToDerivedTypes="True">
+                <Setter Property="Shell.BackgroundColor" Value="#6C63FF" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor"      Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent
+            Title="Registration Form"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate pages:MainPage}" />
+        <ShellContent
+            Title="Custom Renderers"
+            Icon="dotnet_bot.png"
+            ContentTemplate="{DataTemplate pages:CustomRendererPage}" />
+    </TabBar>
+
+</Shell>

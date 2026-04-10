@@ -1,0 +1,127 @@
+{
+  "title": "User Registration",
+  "description": "Create your account to get started.",
+  "fields": [
+    {
+      "type": "heading",
+      "key": "section_personal",
+      "label": "Personal Information",
+      "properties": { "fontSize": 18, "color": "#6C63FF" }
+    },
+    {
+      "type": "text",
+      "key": "firstName",
+      "label": "First Name",
+      "required": true,
+      "placeholder": "Enter your first name"
+    },
+    {
+      "type": "text",
+      "key": "lastName",
+      "label": "Last Name",
+      "required": true,
+      "placeholder": "Enter your last name"
+    },
+    {
+      "type": "email",
+      "key": "email",
+      "label": "Email Address",
+      "required": true,
+      "placeholder": "you@example.com"
+    },
+    {
+      "type": "password",
+      "key": "password",
+      "label": "Password",
+      "required": true,
+      "placeholder": "At least 8 characters"
+    },
+    {
+      "type": "date",
+      "key": "dateOfBirth",
+      "label": "Date of Birth"
+    },
+    {
+      "type": "number",
+      "key": "phone",
+      "label": "Phone Number",
+      "placeholder": "+1 555 000 0000"
+    },
+    {
+      "type": "divider",
+      "key": "div1",
+      "label": "",
+      "properties": { "color": "#D0C8FF", "thickness": 1.5 }
+    },
+    {
+      "type": "heading",
+      "key": "section_prefs",
+      "label": "Preferences",
+      "properties": { "fontSize": 18, "color": "#6C63FF" }
+    },
+    {
+      "type": "dropdown",
+      "key": "country",
+      "label": "Country",
+      "placeholder": "Select your country",
+      "properties": {
+        "options": ["Australia", "Canada", "India", "United Kingdom", "United States"]
+      }
+    },
+    {
+      "type": "radio",
+      "key": "gender",
+      "label": "Gender",
+      "properties": {
+        "options": ["Male", "Female", "Non-binary", "Prefer not to say"]
+      }
+    },
+    {
+      "type": "multiselect",
+      "key": "interests",
+      "label": "Interests",
+      "properties": {
+        "options": [".NET / C#", "MAUI / Mobile", "Blazor / Web", "Azure / Cloud", "AI / ML"]
+      }
+    },
+    {
+      "type": "divider",
+      "key": "div2",
+      "label": "",
+      "properties": { "color": "#D0C8FF" }
+    },
+    {
+      "type": "heading",
+      "key": "section_comm",
+      "label": "Communication",
+      "properties": { "fontSize": 18, "color": "#6C63FF" }
+    },
+    {
+      "type": "switch",
+      "key": "emailNotifications",
+      "label": "Email notifications",
+      "defaultValue": true
+    },
+    {
+      "type": "checkbox",
+      "key": "newsletter",
+      "label": "Subscribe to the monthly newsletter"
+    },
+    {
+      "type": "divider",
+      "key": "div3",
+      "label": "",
+      "properties": { "color": "#D0C8FF" }
+    },
+    {
+      "type": "multiline",
+      "key": "bio",
+      "label": "Short Bio",
+      "placeholder": "Tell us a bit about yourself (optional)..."
+    }
+  ],
+  "actions": [
+    { "type": "submit", "key": "btnSubmit", "label": "Create Account" },
+    { "type": "reset",  "key": "btnReset",  "label": "Clear" }
+  ]
+}
