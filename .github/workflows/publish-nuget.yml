@@ -33,11 +33,8 @@ jobs:
       - name: Restore
         run: dotnet restore ${{ env.PACKAGE_PROJECT }}
 
-      - name: Build
-        run: dotnet build ${{ env.PACKAGE_PROJECT }} --configuration Release --framework net9.0 --no-restore
-
       - name: Pack
-        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release --no-build -o ./artifacts /p:TargetFramework=net9.0
+        run: dotnet pack ${{ env.PACKAGE_PROJECT }} --configuration Release -o ./artifacts /p:TargetFramework=net9.0
 
       - name: Publish
         shell: pwsh
