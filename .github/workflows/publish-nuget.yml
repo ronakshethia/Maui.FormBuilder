@@ -1,49 +1,44 @@
 name: Publish NuGet
 
 on:
-workflow_dispatch:
-push:
-tags:
-- "v*"
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
 
 env:
-DOTNET_VERSION: "8.0.x"
-NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
+  DOTNET_VERSION: "8.0.x"
+  NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
 
 jobs:
-build-pack-publish:
-runs-on: windows-latest
+  build-pack-publish:
+    runs-on: windows-latest
 
-steps:
-  # Checkout repo
-  - name: Checkout
-    uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-  # Setup .NET
-  - name: Setup .NET
-    uses: actions/setup-dotnet@v4
-    with:
-      dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-  # Restore dependencies
-  - name: Restore
-    run: dotnet restore
+      - name: Restore
+        run: dotnet restore
 
-  # Build
-  - name: Build
-    run: dotnet build --configuration Release --no-restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
 
-  # Pack NuGet
-  - name: Pack
-    run: dotnet pack --configuration Release --no-build -o ./artifacts
+      - name: Pack
+        run: dotnet pack --configuration Release --no-build -o ./artifacts
 
-  # Publish to NuGet
-  - name: Publish
-    run: |
-      $packages = Get-ChildItem "./artifacts/*.nupkg"
-      foreach ($pkg in $packages) {
-        dotnet nuget push $pkg.FullName `
-          --api-key ${{ secrets.NUGET_API_KEY }} `
-          --source ${{ env.NUGET_SOURCE }} `
-          --skip-duplicate
-      }
+      - name: Publish
+        shell: pwsh
+        run: |
+          $packages = Get-ChildItem "./artifacts/*.nupkg"
+          foreach ($pkg in $packages) {
+            dotnet nuget push $pkg.FullName `
+              --api-key "${{ secrets.NUGET_API_KEY }}" `
+              --source "${{ env.NUGET_SOURCE }}" `
+              --skip-duplicate
+          }
